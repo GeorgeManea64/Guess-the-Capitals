@@ -7,7 +7,7 @@
     /* Basic body styling */
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('Images/worldmap.png');
+      background-image: url('../Images/worldmap.png');
       background-size: cover;
       color: #333;
       display: flex;
