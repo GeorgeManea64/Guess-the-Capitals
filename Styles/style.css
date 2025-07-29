@@ -1,0 +1,67 @@
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+/* Basic body styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url(../Images/worldmap.png);
+  background-size: cover;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container that wraps everything */
+.container {
+  text-align: center;
+  padding: 40px;
+}
+
+/* Main title */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 75px;
+}
+
+/* Grid for continent boxes */
+.continent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .continent-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each continent box */
+.continent {
+  display: block;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.continent:hover {
+  transform: translateY(-5px);
+  background: #e0f7fa;
+}
