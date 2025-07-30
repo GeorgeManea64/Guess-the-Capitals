@@ -1,0 +1,124 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Basic body styling */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('../Images/worldmap.png');
+      background-size: cover;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Container that wraps everything */
+    .container {
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    /* Main title */
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Question progress indicator */
+    #progress {
+      font-size: 1rem;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    /* Question text */
+    #question {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+
+    /* Options list */
+    .options {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    .options li {
+      background: #fff;
+      margin: 12px 0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.2s ease, transform 0.15s ease;
+      user-select: none;
+    }
+
+    .options li:hover {
+      background: #e0f7fa;
+      transform: translateY(-3px);
+    }
+
+    /* Disabled after click */
+    .options li.disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* Correct answer highlight */
+    .options li.correct {
+      background: #a5d6a7 !important;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    /* Wrong answer highlight */
+    .options li.wrong {
+      background: #ef9a9a !important;
+      color: #b71c1c;
+      font-weight: bold;
+    }
+
+    /* Next question button */
+    #next-btn, #back-btn {
+      margin-top: 10px;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      background: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #next-btn:hover, #back-btn:hover {
+      background: #0277bd;
+    }
+
+    /* Win message */
+    #win-message {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    /* Score message */
+    #score-message {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
