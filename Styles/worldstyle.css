@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 /* Basic body styling */
@@ -11,6 +10,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-image: url(../Images/worldmap.png);
   background-size: cover;
+  background-position: center;
   color: #333;
   display: flex;
   justify-content: center;
@@ -22,46 +22,111 @@ body {
 .container {
   text-align: center;
   padding: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  width: 90%;
 }
 
 /* Main title */
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 75px;
+  margin-bottom: 40px;
 }
 
-/* Grid for continent boxes */
-.continent-grid {
+/* Progress bar */
+#progress {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Question text */
+#question {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+}
+
+/* Options list */
+.options {
+  list-style: none;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-@media (max-width: 600px) {
-  .continent-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Each continent box */
-.continent {
-  display: block;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  color: #333;
-  transition: transform 0.2s ease, background 0.2s ease;
+.options li {
+  padding: 12px 20px;
+  background: #fff;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.continent:hover {
-  transform: translateY(-5px);
+.options li:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.02);
+}
+
+/* Correct & wrong answer styles */
+.correct {
+  background-color: #c8e6c9 !important;
+}
+
+.wrong {
+  background-color: #ffcdd2 !important;
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
+/* Next button */
+#next-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#next-btn:hover {
+  background: #1976d2;
+}
+
+/* Win/result area */
+#win-area {
+  text-align: center;
+}
+
+#win-message {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#score-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Back button */
+#back-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#back-btn:hover {
   background: #e0f7fa;
 }

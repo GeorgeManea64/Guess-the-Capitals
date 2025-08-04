@@ -16,9 +16,12 @@ const questionEl = document.getElementById('question');
 
     async function fetchCountries() {
       try {
-        const res = await fetch('https://restcountries.com/v3.1/all')
-        const data = await res.json();
-        countriesData = data.filter(c => c.capital && c.capital.length > 0 && c.name && c.name.common);
+        const regions = ['Europe', 'Asia', 'Africa', 'Oceania', 'Americas'];
+        const promises = regions.map(region =>
+          fetch(`https://restcountries.com/v3.1/region/${region}`).then(res => res.json())
+        );
+        const results = await Promise.all(promises);
+        countriesData = results.flat().filter(c => c.capital && c.capital.length > 0 && c.name && c.name.common);
         prepareQuestions();
       } catch (error) {
         questionEl.textContent = "Failed to load data. Please refresh the page.";

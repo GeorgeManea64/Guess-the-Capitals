@@ -1,124 +1,132 @@
+/* Reset some basic styles */
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* Basic body styling */
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-image: url('../Images/worldmap.png');
-      background-size: cover;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+/* Basic body styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url(../Images/worldmap.png);
+  background-size: cover;
+  background-position: center;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-    /* Container that wraps everything */
-    .container {
-      text-align: center;
-      padding: 40px;
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      max-width: 500px;
-      width: 100%;
-    }
+/* Container that wraps everything */
+.container {
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  width: 90%;
+}
 
-    /* Main title */
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+/* Main title */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
 
-    /* Question progress indicator */
-    #progress {
-      font-size: 1rem;
-      margin-bottom: 40px;
-      color: #555;
-    }
+/* Progress bar */
+#progress {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
 
-    /* Question text */
-    #question {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-    }
+/* Question text */
+#question {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+}
 
-    /* Options list */
-    .options {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 30px;
-    }
+/* Options list */
+.options {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
 
-    .options li {
-      background: #fff;
-      margin: 12px 0;
-      padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: background 0.2s ease, transform 0.15s ease;
-      user-select: none;
-    }
+.options li {
+  padding: 12px 20px;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
 
-    .options li:hover {
-      background: #e0f7fa;
-      transform: translateY(-3px);
-    }
+.options li:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.02);
+}
 
-    /* Disabled after click */
-    .options li.disabled {
-      pointer-events: none;
-      opacity: 0.6;
-    }
+/* Correct & wrong answer styles */
+.correct {
+  background-color: #c8e6c9 !important;
+}
 
-    /* Correct answer highlight */
-    .options li.correct {
-      background: #a5d6a7 !important;
-      color: #2e7d32;
-      font-weight: bold;
-    }
+.wrong {
+  background-color: #ffcdd2 !important;
+}
 
-    /* Wrong answer highlight */
-    .options li.wrong {
-      background: #ef9a9a !important;
-      color: #b71c1c;
-      font-weight: bold;
-    }
+.disabled {
+  opacity: 0.6;
+}
 
-    /* Next question button */
-    #next-btn, #back-btn {
-      margin-top: 10px;
-      padding: 12px 30px;
-      font-size: 1.2rem;
-      background: #0288d1;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+/* Next button */
+#next-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
 
-    #next-btn:hover, #back-btn:hover {
-      background: #0277bd;
-    }
+#next-btn:hover {
+  background: #1976d2;
+}
 
-    /* Win message */
-    #win-message {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #2e7d32;
-      font-weight: bold;
-    }
+/* Win/result area */
+#win-area {
+  text-align: center;
+}
 
-    /* Score message */
-    #score-message {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      color: #333;
-    }
+#win-message {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#score-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Back button */
+#back-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#back-btn:hover {
+  background: #e0f7fa;
+}
