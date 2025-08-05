@@ -11,13 +11,24 @@
     <div class="container">
     <h1>Guess the Capitals</h1>
     <div class="continent-grid">
-      <a href="guessamerica.html" class="continent">America</a>
-      <a href="guesseurope.html" class="continent">Europe</a>
-      <a href="guessasia.html" class="continent">Asia</a>
-      <a href="guessafrica.html" class="continent">Africa</a>
-      <a href="guessoceania.html" class="continent">Oceania</a>
-      <a href="guessworld.html" class="continent">World</a>
+      <a class="continent" onclick="selectDifficulty('guessamerica.html')">America</a>
+      <a class="continent" onclick="selectDifficulty('guesseurope.html')">Europe</a>
+      <a class="continent" onclick="selectDifficulty('guessasia.html')">Asia</a>
+      <a class="continent" onclick="selectDifficulty('guessafrica.html')">Africa</a>
+      <a class="continent" onclick="selectDifficulty('guessoceania.html')">Oceania</a>
+      <a class="continent" onclick="selectDifficulty('guessworld.html')">World</a>
     </div>
   </div>
+
+  <script>
+    function selectDifficulty(page) {
+      const difficulty = prompt("Select difficulty: easy, normal, or hard").toLowerCase();
+      if (['easy', 'normal', 'hard'].includes(difficulty)) {
+        window.location.href = `${page}?difficulty=${difficulty}`;
+      } else {
+        alert("Invalid difficulty. Please choose easy, normal, or hard.");
+      }
+    }
+  </script>
 </body>
 </html>

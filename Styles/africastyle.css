@@ -130,3 +130,10 @@ h1 {
 #back-btn:hover {
   background: #e0f7fa;
 }
+
+#timer {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #ff0000;
+}

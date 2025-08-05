@@ -13,6 +13,22 @@ const questionEl = document.getElementById('question');
     let currentQuestionIndex = 0;
     let score = 0;
     let answered = false;
+    let timer;
+    let timeLeft;
+    const timerDisplay = document.createElement('div');
+    timerDisplay.id = "timer";
+    document.getElementById('quiz-area').prepend(timerDisplay);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const difficulty = urlParams.get('difficulty') || 'normal'; // default to normal if missing
+
+    let timerDuration = 20; // default
+
+    if (difficulty === 'easy') {
+      timerDuration = 30;
+    } else if (difficulty === 'hard') {
+      timerDuration = 10;
+    }
 
     async function fetchCountries() {
       try {
@@ -42,12 +58,23 @@ const questionEl = document.getElementById('question');
     function showQuestion() {
       answered = false;
       nextBtn.style.display = 'none';
+      clearInterval(timer); // Clear any previous timer
+      timeLeft = timerDuration;
+      updateTimerDisplay();
+
+      timer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          autoFail();
+        }
+      }, 1000);
 
       const current = questions[currentQuestionIndex];
       progressEl.textContent = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
       questionEl.textContent = `What is the capital of ${current.country}?`;
 
-      // Prepare 3 wrong capitals
       let wrongOptions = countriesData
         .filter(c => c.capital && c.capital[0] !== current.capital)
         .map(c => c.capital[0]);
@@ -64,6 +91,26 @@ const questionEl = document.getElementById('question');
         li.addEventListener('click', () => selectOption(li, option));
         optionsList.appendChild(li);
       });
+    }
+
+    function updateTimerDisplay() {
+      timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+    }
+
+    function autoFail() {
+      answered = true;
+      const currentCapital = questions[currentQuestionIndex].capital;
+
+      const allOptions = optionsList.querySelectorAll('li');
+      allOptions.forEach(opt => {
+        opt.classList.add('disabled');
+        opt.style.pointerEvents = 'none';
+        if (opt.textContent === currentCapital) {
+          opt.classList.add('correct');
+        }
+      });
+
+      nextBtn.style.display = 'inline-block';
     }
 
     function selectOption(li, selectedOption) {
@@ -94,6 +141,7 @@ const questionEl = document.getElementById('question');
       }
 
       nextBtn.style.display = 'inline-block';
+      clearInterval(timer);
     }
 
     nextBtn.addEventListener('click', () => {
