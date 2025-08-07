@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In - Guess the Capitals</title>
+  <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Log In</h1>
+    <form id="login-form" style="max-width: 400px; margin: 0 auto; text-align: left;">
+      <label>Username</label><br>
+      <input type="text" id="username" required style="width:100%; padding:10px; margin:10px 0;"><br>
+      <label>Password</label><br>
+      <input type="password" id="password" required style="width:100%; padding:10px; margin:10px 0;"><br>
+      <button class="continent" type="submit">Log In</button>
+    </form>
+    <p style="margin-top: 20px;">
+      Don’t have an account? <a href="signup.html">Sign up</a>
+    </p>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      const storedUser = localStorage.getItem(username);
+
+      if (!storedUser) {
+        alert("User not found. Please sign up.");
+        return;
+      }
+
+      const parsedUser = JSON.parse(storedUser);
+
+      if (parsedUser.password === password) {
+        alert("Login successful!");
+        localStorage.setItem("currentUser", username);
+        window.location.href = "continent.html";
+      } else {
+        alert("Incorrect password.");
+      }
+    });
+  </script>
+</body>
+</html>

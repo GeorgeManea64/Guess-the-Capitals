@@ -157,7 +157,7 @@ const questionEl = document.getElementById('question');
     });
 
     backBtn.addEventListener('click', () => {
-      window.location.href = 'index.html';
+      window.location.href = 'continent.html';
     });
 
     function showResults() {

@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess The Capitals</title>
-    <link rel="stylesheet" href="Styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Capitals</title>
+  <link rel="stylesheet" href="Styles/style.css">
 </head>
 <body>
-
-    <div class="container">
+  <div class="container">
     <h1>Guess the Capitals</h1>
-    <div class="continent-grid">
-      <a class="continent" onclick="selectDifficulty('guessamerica.html')">America</a>
-      <a class="continent" onclick="selectDifficulty('guesseurope.html')">Europe</a>
-      <a class="continent" onclick="selectDifficulty('guessasia.html')">Asia</a>
-      <a class="continent" onclick="selectDifficulty('guessafrica.html')">Africa</a>
-      <a class="continent" onclick="selectDifficulty('guessoceania.html')">Oceania</a>
-      <a class="continent" onclick="selectDifficulty('guessworld.html')">World</a>
+    <p style="max-width: 600px; margin: 20px auto; font-size: 1.2rem;">
+      Test your knowledge of world capitals! Choose a continent, pick your difficulty level, 
+      and race against the clock to answer as many questions as you can.
+    </p>
+    <div style="margin-top: 50px;">
+      <a class="continent" href="signup.html">Sign Up</a>
+      <a class="continent" href="login.html">Log In</a>
+      <a class="continent" href="#" onclick="playAsGuest()">Play as Guest</a>
     </div>
   </div>
 
   <script>
-    function selectDifficulty(page) {
-      const difficulty = prompt("Select difficulty: easy, normal, or hard").toLowerCase();
-      if (['easy', 'normal', 'hard'].includes(difficulty)) {
-        window.location.href = `${page}?difficulty=${difficulty}`;
-      } else {
-        alert("Invalid difficulty. Please choose easy, normal, or hard.");
-      }
+    function playAsGuest() {
+        localStorage.setItem('currentUser', 'guest');
+        window.location.href = 'continent.html';
     }
-  </script>
+    </script>
 </body>
 </html>

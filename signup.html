@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Guess the Capitals</title>
+  <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Account</h1>
+    <form id="signup-form" style="max-width: 400px; margin: 0 auto; text-align: left;">
+      <label>Username</label><br>
+      <input type="text" id="username" required style="width:100%; padding:10px; margin:10px 0;"><br>
+      <label>Password</label><br>
+      <input type="password" id="password" required style="width:100%; padding:10px; margin:10px 0;"><br>
+      <button class="continent" type="submit">Sign Up</button>
+    </form>
+    <p style="margin-top: 20px;">
+      Already have an account? <a href="login.html">Log in</a>
+    </p>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById('signup-form');
+
+    signupForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (localStorage.getItem(username)) {
+        alert("Username already exists. Try logging in.");
+        return;
+      }
+
+      const userData = {
+        username: username,
+        password: password
+      };
+
+      localStorage.setItem(username, JSON.stringify(userData));
+      alert("Signup successful! You can now log in.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

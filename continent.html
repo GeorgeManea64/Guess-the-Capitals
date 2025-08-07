@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Capitals</title>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+
+    <div class="container">
+    <h1>Guess the Capitals</h1>
+    <div class="continent-grid">
+      <a class="continent" onclick="selectDifficulty('guessamerica.html')">America</a>
+      <a class="continent" onclick="selectDifficulty('guesseurope.html')">Europe</a>
+      <a class="continent" onclick="selectDifficulty('guessasia.html')">Asia</a>
+      <a class="continent" onclick="selectDifficulty('guessafrica.html')">Africa</a>
+      <a class="continent" onclick="selectDifficulty('guessoceania.html')">Oceania</a>
+      <a class="continent" onclick="selectDifficulty('guessworld.html')">World</a>
+    </div>
+  </div>
+
+  <script>
+    function selectDifficulty(page) {
+      const difficulty = prompt("Select difficulty: easy, normal, or hard").toLowerCase();
+      if (['easy', 'normal', 'hard'].includes(difficulty)) {
+        window.location.href = `${page}?difficulty=${difficulty}`;
+      } else {
+        alert("Invalid difficulty. Please choose easy, normal, or hard.");
+      }
+    }
+
+    const user = localStorage.getItem('currentUser');
+    if (!user) {
+      alert('You must be logged in or play as guest to continue.');
+      window.location.href = 'login.html';
+    }
+    
+  </script>
+</body>
+</html>
