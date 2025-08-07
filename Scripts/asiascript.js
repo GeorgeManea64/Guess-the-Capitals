@@ -22,12 +22,12 @@ const questionEl = document.getElementById('question');
     const urlParams = new URLSearchParams(window.location.search);
     const difficulty = urlParams.get('difficulty') || 'normal'; // default to normal if missing
 
-    let timerDuration = 20; // default
+    let timerDuration = 10; // default
 
     if (difficulty === 'easy') {
-      timerDuration = 30;
+      timerDuration = 15;
     } else if (difficulty === 'hard') {
-      timerDuration = 10;
+      timerDuration = 5;
     }
 
     async function fetchCountries() {
